@@ -1,45 +1,32 @@
-# FXML based JavaFX Maven Archetype
+# Arquitectura FXML basada en JavaFX con Maven 
 
-The project is a Maven archetype for creating a fxml based JavaFX application.
+Este proyecto es una arquitectura de maven basada en JavaFX
 
-### Prerequisites
+### Requisitos
 
 * JDK 11
-* Maven 3
+* Maven 3.X
 
-
-### Create a project from a local repository
-
-Once you have installed the archetype locally, you can use it to create a new project using:
-
-```
-mvn archetype:generate \
-        -DarchetypeGroupId=org.openjfx \
-        -DarchetypeArtifactId=javafx-archetype-fxml \
-        -DarchetypeVersion=0.0.6 \
-        -DgroupId=groupid \
-        -DartifactId=artifactId \
-        -Dversion=version
+## Clona el repositorio e ingresa a él
+``` bash
+git clone https://github.com/RanMd/javafx-archetype.git
+cd javafx-archetype-comp
 ```
 
-The following properties can be customized while creating the project:
-
-| Property                    | Default Value |
-| --------------------------- | ------------- |
-| javafx-version              | 13            |
-| javafx-maven-plugin-version | 0.0.5         |
-| add-debug-configuration     | N             |
-
-For example:
-
+## Instala la arquitectura
+``` bash
+mvn archetype:create-from-project
 ```
-mvn archetype:generate \
-        -DarchetypeGroupId=org.openjfx \
-        -DarchetypeArtifactId=javafx-archetype-fxml \
-        -DarchetypeVersion=0.0.6 \
-        -DgroupId=groupid \
-        -DartifactId=artifactId \
-        -Dversion=version \
-        -Djavafx-version=12-ea+14 \
-        -Dadd-debug-configuration=Y
+
+## Después de crear la arquitectura
+Maven nos creará una carpeta target/generated-sources/archetype, luego de esto accede hasta la ruta target/generated-sources/archetype y ejecuta:
+``` bash
+mvn install
 ```
+
+## Con eso ya tendremos instalado nuestra arquitectura en local
+Para validarlo ejecutamos el siguiente comando para listar los arquetipos locales:
+``` bash
+mvn archetype:generate -DarchetypeCatalog=local
+```
+
