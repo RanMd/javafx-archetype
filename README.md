@@ -1,22 +1,45 @@
-# Maven Archetypes for JavaFX
+# FXML based JavaFX Maven Archetype
 
-Arquetipos de Maven para crear diferentes tipos de aplicaciones JavaFX.
+The project is a Maven archetype for creating a fxml based JavaFX application.
 
-El proyecto es un proyecto Maven multi-módulo. Cada módulo contiene un arquetipo para crear una aplicación JavaFX.
+### Prerequisites
 
-Todos los proyectos creados a través de los arquetipos utilizan el plugin de Maven para JavaFX para compilar y ejecutar la aplicación JavaFX.
+* JDK 11
+* Maven 3
 
-Requisitos previos
-JDK 11
-Maven 3
 
-Instalar el arquetipo localmente
-Para instalarlo:
+### Create a project from a local repository
+
+Once you have installed the archetype locally, you can use it to create a new project using:
 
 ```
-git clone https://github.com/RanMd/javafx-archetype.git
-cd javafx-archetype-complete
-mvn clean install
+mvn archetype:generate \
+        -DarchetypeGroupId=org.openjfx \
+        -DarchetypeArtifactId=javafx-archetype-fxml \
+        -DarchetypeVersion=0.0.6 \
+        -DgroupId=groupid \
+        -DartifactId=artifactId \
+        -Dversion=version
 ```
 
-Esto instalará el arquetipo de JavaFX en tu repositorio local.
+The following properties can be customized while creating the project:
+
+| Property                    | Default Value |
+| --------------------------- | ------------- |
+| javafx-version              | 13            |
+| javafx-maven-plugin-version | 0.0.5         |
+| add-debug-configuration     | N             |
+
+For example:
+
+```
+mvn archetype:generate \
+        -DarchetypeGroupId=org.openjfx \
+        -DarchetypeArtifactId=javafx-archetype-fxml \
+        -DarchetypeVersion=0.0.6 \
+        -DgroupId=groupid \
+        -DartifactId=artifactId \
+        -Dversion=version \
+        -Djavafx-version=12-ea+14 \
+        -Dadd-debug-configuration=Y
+```
